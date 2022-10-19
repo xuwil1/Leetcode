@@ -7,16 +7,18 @@ var isAnagram = function(s, t) {
     if(s.length!=t.length){
         return false;
     }
-    let freq= {};
+    let freq= new Map();
     for(const char of s){
-        freq[char]=(freq[char]||0)+1;
+        let count= (freq.get(char) || 0)+1;
+        freq.set(char,count);
     }
     for(const char of t){
-        if(freq[char]){
-            freq[char]=freq[char]-1;
-            if(freq[char]<0){
+        if(freq.has(char)){
+            let count=freq.get(char)-1;
+            if(count<0){
                 return false;
             }
+            freq.set(char,count);
         }else{
             return false;
         }
