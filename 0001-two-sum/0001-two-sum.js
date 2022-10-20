@@ -11,7 +11,8 @@ var twoSum = function(nums, target) {
         const complement = target - nums[index];
         const sumIndex = temp.get(complement);
 
-        if (temp.has(target - nums[index]) && (temp.get(target - nums[index]) !== index)) return [ index, sumIndex ]
+        if (temp.has(target - nums[index]) && (temp.get(target - nums[index]) !== index))
+            return [ index, temp.get(target - nums[index]) ]
     }
     // for(let i=0;i<nums.length;i++){
     //     if(temp.has(target-nums[i]) && temp.get(target-nums[i])!=i){
