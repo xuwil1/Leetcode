@@ -11,12 +11,11 @@ var twoSum = function(nums, target) {
         const complement = target - nums[index];
         const sumIndex = temp.get(complement);
 
-        const isTarget = temp.has(complement) && (temp.get(complement) !== index)
-        if (isTarget) return [ index, sumIndex ]
+        if (temp.has(target - nums[index]) && (temp.get(target - nums[index]) !== index)) return [ index, sumIndex ]
     }
     // for(let i=0;i<nums.length;i++){
     //     if(temp.has(target-nums[i]) && temp.get(target-nums[i])!=i){
-    //         return [temp.get(nums[i]),temp.get(target-nums[i])];
+    //         return [i,temp.get(target-nums[i])];
     //     }
     // }
     //         const isTarget = map.has(complement) && (map.get(complement) !== index)
