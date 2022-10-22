@@ -22,5 +22,5 @@ function getHash(word){
     for(const char of word){
         freq[char.charCodeAt(0)-'a'.charCodeAt(0)]++;
     }
-    return freq.map(x=>`#${x}`).join('');
+    return freq.join('#');
 }
