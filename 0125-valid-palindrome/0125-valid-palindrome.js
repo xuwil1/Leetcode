@@ -5,7 +5,7 @@
 
 var isPalindrome = function(s) {
     if (!s.length) return true;
-
+    s=s.toLowerCase();
     return isValid(s);/* Time O(N) */
 };
 
@@ -14,7 +14,7 @@ const isValid = (s) => {
 
     while (left < right) {                          /* Time O(N) */
            while ((left < right) && !isAlphaNumeric(s[left])) left++;  /* Time O(N) */
-    while ((left < right) && !isAlphaNumeric(s[right])) right--;/* Time O(N) */
+           while ((left < right) && !isAlphaNumeric(s[right])) right--;/* Time O(N) */
 
         const [ leftCode, rightCode ] = getCodes(s, left, right);
   
@@ -33,14 +33,9 @@ const getCodes = (s, left, right) => [ getCode(s[left]), getCode(s[right]) ];
 
 const getCode = (char) => char.toLowerCase().charCodeAt(0);
 
-const isAlphaNumeric = (char) => {
-    const code = getCode(char);
-    
-    const [ a, z ] = [ 97, 122 ];
-    const isAlpha = (a <= code) && (code <= z);
+const isAlphaNumeric = (c) => {
+    let alpha = c.charCodeAt(0)>='a'.charCodeAt(0) && c.charCodeAt(0)<='z'.charCodeAt(0);
+    let num = c.charCodeAt(0)>='0'.charCodeAt(0) &&c.charCodeAt(0)<='9'.charCodeAt(0);
 
-    const [ zero, nine ] = [ 48, 57 ];
-    const isNumeric = (zero <= code) && (code <= nine);
-
-    return isAlpha || isNumeric;
+    return alpha || num;
 };
