@@ -10,10 +10,10 @@ var longestConsecutive = function(nums) {
        if(nums[i]==nums[i-1]) continue;
        if(nums[i]==nums[i-1]+1){
            score++;
-       }else{
+           continue;
+       }
            maxScore=Math.max(maxScore,score);
            score=1;
-       }
     }
     return Math.max(maxScore,score);
 };
