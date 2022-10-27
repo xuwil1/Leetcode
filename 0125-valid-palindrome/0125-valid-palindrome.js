@@ -16,10 +16,10 @@ const isValid = (s) => {
            while ((left < right) && !isAlphaNumeric(s[left])) left++;  /* Time O(N) */
            while ((left < right) && !isAlphaNumeric(s[right])) right--;/* Time O(N) */
 
-        const [ leftCode, rightCode ] = getCodes(s, left, right);
+//         const [ leftCode, rightCode ] = getCodes(s, left, right);
   
-        const isEqual = leftCode === rightCode;
-        if (!isEqual) return false;
+
+        if (s[left] !== s[right]) return false;
 
         left++; right--;
     }
