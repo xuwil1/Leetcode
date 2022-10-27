@@ -12,8 +12,8 @@ var longestConsecutive = function(nums) {
            score++;
            continue;
        }
-           maxScore=Math.max(maxScore,score);
+           maxScore=maxScore<score ? score : maxScore;
            score=1;
     }
-    return Math.max(maxScore,score);
+    return maxScore<score ? score : maxScore;
 };
