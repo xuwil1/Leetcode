@@ -7,12 +7,8 @@ var isPalindrome = function(s) {
     let right=s.length-1;
     s=s.toLowerCase();
     while(left<right){
-        while(left<right && !check(s[left])){
-            left++;                 
-        }
-        while(left<right && !check(s[right])){
-            right--;                 
-        }
+        while(left<right && !check(s[left])) left++;                 
+        while(left<right && !check(s[right])) right--;
         if(s[left]!==s[right]) return false;
         left++;
         right--;
@@ -23,7 +19,10 @@ var isPalindrome = function(s) {
 
 
 function check(c){
-    let alpha = c.charCodeAt(0)>='a'.charCodeAt(0) && c.charCodeAt(0)<='z'.charCodeAt(0);
-    let num = c.charCodeAt(0)>='0'.charCodeAt(0) &&c.charCodeAt(0)<='9'.charCodeAt(0);
+    let code=c.charCodeAt(0);
+    let alpha = code>='a'.charCodeAt(0) && code<='z'.charCodeAt(0);
+    let num = code>='0'.charCodeAt(0) && code<='9'.charCodeAt(0);
     return alpha || num
 }
+
+    
