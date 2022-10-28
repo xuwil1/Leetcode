@@ -9,8 +9,8 @@ var threeSum = function(nums) {
         let [target,j,k]=[-nums[i],i+1,nums.length-1];
         if(prev(nums,i)) continue;
         while(j<k){
-
-            if(nums[j]+nums[k]==target){
+            let sum=nums[j]+nums[k];
+            if(sum==target){
                 temp.push([-target,nums[j],nums[k]]);
                 j++;
                 k--;
@@ -19,8 +19,8 @@ var threeSum = function(nums) {
                 continue;
             }
 
-                if(nums[j]+nums[k]<target) j++;
-                if(nums[j]+nums[k]>target) k--;
+                if(sum<target) j++;
+                if(sum>target) k--;
         }
     }
     return temp
