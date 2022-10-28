@@ -69,7 +69,7 @@ const search = (nums, target, left, right, sums) => {
             while (left < right && isPrevDuplicate(nums, left)) left++;
             while (left < right && isNextDuplicate(nums, right)) right--;
 
-            // continue;
+            continue;
         }
 
         const isTargetGreater = sum < target;
