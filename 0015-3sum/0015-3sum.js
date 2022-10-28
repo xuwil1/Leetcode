@@ -3,25 +3,36 @@
  * @return {number[][]}
  */
 // var threeSum = function(nums) {
-//     nums.sort((a,b)=>a-b);
 //     let temp=[];
-    
 //     for(let i=0;i<nums.length-2;i++){
-//         if(nums[i]==nums[i-1]) continue;
-//         let [j,k]=[i+1,nums.length-1];
-//         let target=-nums[i];
+//         let [target,j,k]=[-nums[i],i+1,nums.length-1];
+//         if(prev(nums,i)) continue;
 //         while(j<k){
-//             if(nums[j]+nums[k]<target || nums[j]==nums[j-1]) j++;
-//             if(nums[j]+nums[k]>target || nums[k]==nums[k+1]) k--;
-//             if(j<k && nums[j]+nums[k]==target) {
+
+//             if(nums[j]+nums[k]<target) j++;
+//             if(nums[j]+nums[k]>target) k++;
+//             if(nums[j]+nums[k]==target){
 //                 temp.push([-target,nums[j],nums[k]]);
 //             }
+            
+
 //             j++;
 //             k--;
+//             while(prev(nums,j)) j++;
+//             while(next(nums,k)) k++;
 //         }
 //     }
-//         return temp;
+//     return temp
 // };
+    
+    
+// function prev(nums,index){
+//     return nums[index]==nums[index-1]
+// }    
+// function next(nums,index){
+//     return nums[index]==nums[index+1]
+// }    
+
 var threeSum = function (nums, sums = []) {
     nums.sort((a, b) => a - b);
 
@@ -58,7 +69,7 @@ const search = (nums, target, left, right, sums) => {
             while (left < right && isPrevDuplicate(nums, left)) left++;
             while (left < right && isNextDuplicate(nums, right)) right--;
 
-            continue;
+            // continue;
         }
 
         const isTargetGreater = sum < target;
